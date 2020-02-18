@@ -33,17 +33,15 @@ const onInput = debounce(function input() {
             clearOutput();
           }
         else if (data.length > 2 && data.length <= 10) {
-            clearOutput()
-          data.map(country => {
-            refs.div.insertAdjacentHTML(
-              'beforeend',
-              `<div>${country.name}</div>`
-            )
-          })
+            clearOutput();
+            data.reduce((acc, item) => {
+                acc += `<li>${item.name}</li>`});
+            PNotify.closeAll();
         } 
         else if(data.length === 1){
-            clearOutput()
-            showCountry(data)
+            clearOutput();
+            showCountry(data);
+            PNotify.closeAll();
         }
       }).catch(error => error)  
     }, 500)
