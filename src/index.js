@@ -32,10 +32,10 @@ const onInput = debounce(function input() {
             });
             clearOutput();
           }
-        else if (data.length > 2 && data.length <= 10) {
+        else if (data.length >= 2 && data.length <= 10) {
             clearOutput();
-            data.reduce((acc, item) => {
-                acc += `<li>${item.name}</li>`});
+            refs.div.insertAdjacentHTML('beforeend', data.reduce((acc, item) => {
+                acc += `<li>${item.name}</li>`}));
             PNotify.closeAll();
         } 
         else if(data.length === 1){
