@@ -34,8 +34,8 @@ const onInput = debounce(function input() {
           }
         else if (data.length >= 2 && data.length <= 10) {
             clearOutput();
-            refs.div.insertAdjacentHTML('beforeend', data.reduce((acc, item) => {
-                acc += `<li>${item.name}</li>`}));
+            refs.div.insertAdjacentHTML('beforeend', data.reduce((acc, country) => 
+                (acc += `<li>${country.name}</li>`), ''));
             PNotify.closeAll();
         } 
         else if(data.length === 1){
